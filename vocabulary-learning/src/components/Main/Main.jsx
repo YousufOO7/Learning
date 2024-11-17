@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import Header from '../Layouts/Header';
 import Navbar from '../Layouts/Navbar';
 import Footer from '../Layouts/Footer';
+import Banner from '../Layouts/Banner';
 
 const Main = props => {
     return (
@@ -13,7 +14,7 @@ const Main = props => {
                 <Navbar></Navbar>
             </nav>
             <main className=' min-h-[calc(100vh-380px)]'>
-
+                <Banner></Banner>
             </main>
             <footer>
                 <Footer></Footer>
