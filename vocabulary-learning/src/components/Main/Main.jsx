@@ -3,6 +3,8 @@ import Header from '../Layouts/Header';
 import Navbar from '../Layouts/Navbar';
 import Footer from '../Layouts/Footer';
 import Banner from '../Layouts/Banner';
+import About from '../Layouts/About';
+import Success from '../Layouts/Success';
 
 const Main = props => {
     return (
@@ -13,8 +15,16 @@ const Main = props => {
             <nav className='w-10/12 mx-auto py-3'>
                 <Navbar></Navbar>
             </nav>
-            <main className=' min-h-[calc(100vh-380px)]'>
-                <Banner></Banner>
+            <Banner></Banner>
+            <main>
+                <section className='grid md:grid-cols-2 gap-6 w-10/12 mx-auto py-3'>
+                    <div >
+                        <About></About>
+                    </div>
+                    <div >
+                        <Success></Success>
+                    </div>
+                </section>
             </main>
             <footer>
                 <Footer></Footer>

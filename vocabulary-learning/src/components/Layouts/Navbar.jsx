@@ -36,7 +36,7 @@ const Navbar = props => {
                         }
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Vocabulary Learning </a>
+                <a className="btn btn-ghost text-xl">Lingo Bingo </a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
