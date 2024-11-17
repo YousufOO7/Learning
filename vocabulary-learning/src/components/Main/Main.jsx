@@ -1,19 +1,24 @@
 import PropTypes from 'prop-types';
 import Header from '../Layouts/Header';
 import Navbar from '../Layouts/Navbar';
+import Footer from '../Layouts/Footer';
 
 const Main = props => {
     return (
         <div>
-            <header className='flex justify-center items-center text-center py-3'>
+            {/* <header className='flex justify-center items-center text-center py-3'>
                 <Header></Header>
-            </header>
+            </header> */}
             <nav className='w-10/12 mx-auto py-3'>
                 <Navbar></Navbar>
             </nav>
-            <main>
+            <main className=' min-h-[calc(100vh-380px)]'>
 
             </main>
+            <footer>
+                <Footer></Footer>
+
+            </footer>
         </div>
     );
 };
