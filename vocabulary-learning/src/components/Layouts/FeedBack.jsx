@@ -4,8 +4,8 @@ const FeedBack = ({ feedBackData }) => {
     console.log(feedBackData)
     return (
         <div>
-            <h2 className="text-3xl font-bold text-center text-primary mb-3">FeedBack Section</h2>
-            <div className='grid grid-cols-1 lg:grid-cols-2 gap-5'>
+            <h2 className="text-3xl font-bold text-center text-primary mb-3 underline">FeedBack Section</h2>
+            <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
            {
             feedBackData.map(feed =>  <div className="card bg-base-100 w-64  border-2 border-blue-500 shadow-xl">
                 <div className="card-body">

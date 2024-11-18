@@ -9,7 +9,7 @@ const Home = props => {
     return (
         <div>
             <Banner></Banner>
-            <section className='grid md:grid-cols-2 gap-6 w-10/12 mx-auto py-3'>
+            <section className='grid lg:grid-cols-2 gap-6 w-10/12 mx-auto py-3'>
                     <div >
                         <About></About>
                     </div>

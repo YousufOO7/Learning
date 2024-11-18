@@ -44,7 +44,7 @@ const LessonsDetails = props => {
                                 <button
                                     onClick={() => openMOdal(data)}
                                     className="btn btn-primary">When to say</button>
-                                <Link to="/" className="btn btn-primary">Back to Lesson</Link>
+                                <Link to="/start-learning" className="btn btn-primary">Back to Lesson</Link>
                             </div>
                         </div>
                     </div>)

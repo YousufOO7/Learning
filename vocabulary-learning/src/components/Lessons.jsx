@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 
-const Lessons = ({ lessonData }) => {
+const Lessons = ({ lessons }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {
-                lessonData.map((lesson, idx) => <NavLink
+                lessons.map((lesson, idx) => <NavLink
                     key={idx}
                     to={`/lessons/${lesson.lesson_no}`}
                 >

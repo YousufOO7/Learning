@@ -10,6 +10,7 @@ import Home from './components/Home/Home';
 import AboutUs from './components/Layouts/AboutUs';
 import Tutorials from './components/Tutorials';
 import LessonsDetails from './components/LessonDetails/LessonsDetails';
+import StartLearning from './components/Layouts/StartLearning';
 
 const router = createBrowserRouter([
   {
@@ -20,14 +21,17 @@ const router = createBrowserRouter([
         path: "/",
         element: <Home></Home>,
         loader: async () => {
-          const lessonsRes = await fetch ('/lesson_no.json')
-          const lessonData = await lessonsRes.json()
 
           const feedBackRes = await fetch ('/FeedBack.json')
           const feedBackData = await feedBackRes.json()
 
-          return {lessonData, feedBackData}
+          return { feedBackData}
         }
+      },
+      {
+        path: "/start-learning",
+        element: <StartLearning></StartLearning>,
+        loader: () => fetch ('/lesson_no.json')
       },
       {
         path: "/tutorials",

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 const About = props => {
     return (
         <div>
-            <h2 className="text-3xl font-semibold text-center underline">About</h2>
+            <h2 className="text-3xl font-semibold text-center underline text-primary">About</h2>
             <div className='py-2'>
                 <p>Welcome to  <b>A Vocabulary Learning Application</b>, your ultimate destination for fun and interactive language learning!
 
