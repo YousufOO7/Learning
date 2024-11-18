@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Navbar = props => {
 
@@ -11,7 +11,7 @@ const Navbar = props => {
     </>
 
     return (
-        <div className="navbar bg-gray-800 text-gray-200">
+        <div className="navbar bg-gray-800 text-gray-200 px-5">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,7 +46,7 @@ const Navbar = props => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                <Link to="/auth/login"><a className="btn">Login</a></Link>
             </div>
         </div>
     );

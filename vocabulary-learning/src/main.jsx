@@ -11,6 +11,9 @@ import AboutUs from './components/Layouts/AboutUs';
 import Tutorials from './components/Tutorials';
 import LessonsDetails from './components/LessonDetails/LessonsDetails';
 import StartLearning from './components/Layouts/StartLearning';
+import AuthLayout from './components/AuthLayout/AuthLayout';
+import Login from './components/AuthLayout/Login';
+import Register from './components/AuthLayout/Register';
 
 const router = createBrowserRouter([
   {
@@ -53,6 +56,20 @@ const router = createBrowserRouter([
       
       return singleData
     }
+  },
+  {
+    path: '/auth',
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/auth/register",
+        element: <Register></Register>
+      }
+    ]
   },
   
 ]);
