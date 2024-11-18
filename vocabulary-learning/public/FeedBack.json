@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "image": "https://images.unsplash.com/photo-1544717305-2782549b5136",
+        "person_name": "John Doe",
+        "review": "This word was easy to learn and the app provides excellent context and examples!"
+    },
+    {
+        "id": 2,
+        "image": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde",
+        "person_name": "Jane Smith",
+        "review": "A challenging word but extremely rewarding to use in daily conversation."
+    },
+    {
+        "id": 3,
+        "image": "https://images.unsplash.com/photo-1511367461989-f85a21fda167",
+        "person_name": "Emily Johnson",
+        "review": "Loved learning this word! The app's examples make it very clear when to use it."
+    },
+    {
+        "id": 4,
+        "image": "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+        "person_name": "Michael Brown",
+        "review": "Fantastic app! This word's examples really helped me connect with its meaning."
+    }
+]

@@ -5,9 +5,9 @@ const Navbar = props => {
 
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="start-learning">Start Learning</NavLink></li>
-        <li><NavLink to="tutorials">Tutorials</NavLink></li>
-        <li><NavLink to="about-us">About Us</NavLink></li>
+        <li><NavLink to="/start-learning">Start Learning</NavLink></li>
+        <li><NavLink to="/tutorials">Tutorials</NavLink></li>
+        <li><NavLink to="/about-us">About Us</NavLink></li>
     </>
 
     return (
