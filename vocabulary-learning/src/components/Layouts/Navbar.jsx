@@ -1,7 +1,11 @@
 import PropTypes from 'prop-types';
+import { useContext } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = props => {
+
+    const {user, Logout} = useContext(AuthContext);
 
     const Links = <>
         <li><NavLink to="/">Home</NavLink></li>
@@ -46,7 +50,10 @@ const Navbar = props => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to="/auth/login"><a className="btn">Login</a></Link>
+                {
+                    user && user?.email ? <button onClick={Logout} className="btn btn-neutral">Log-Out</button> : <Link to="/auth/login"><a className="btn">Login</a></Link>
+                    
+                }
             </div>
         </div>
     );

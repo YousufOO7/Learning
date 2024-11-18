@@ -14,6 +14,8 @@ import StartLearning from './components/Layouts/StartLearning';
 import AuthLayout from './components/AuthLayout/AuthLayout';
 import Login from './components/AuthLayout/Login';
 import Register from './components/AuthLayout/Register';
+import AuthProvider from './Provider/AuthProvider';
+import PrivateRouts from './components/AuthLayout/PrivateRouts';
 
 const router = createBrowserRouter([
   {
@@ -25,20 +27,20 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: async () => {
 
-          const feedBackRes = await fetch ('/FeedBack.json')
+          const feedBackRes = await fetch('/FeedBack.json')
           const feedBackData = await feedBackRes.json()
 
-          return { feedBackData}
+          return { feedBackData }
         }
       },
       {
         path: "/start-learning",
-        element: <StartLearning></StartLearning>,
-        loader: () => fetch ('/lesson_no.json')
+        element: <PrivateRouts><StartLearning></StartLearning></PrivateRouts>,
+        loader: () => fetch('/lesson_no.json')
       },
       {
         path: "/tutorials",
-        element: <Tutorials></Tutorials>
+        element: <PrivateRouts><Tutorials></Tutorials></PrivateRouts>
       },
       {
         path: "/about-us",
@@ -49,11 +51,11 @@ const router = createBrowserRouter([
   {
     path: "/lessons/:lesson_no",
     element: <LessonsDetails></LessonsDetails>,
-    loader: async ({params}) => {
+    loader: async ({ params }) => {
       const res = await fetch('/fake_vocabulary_data.json')
       const data = await res.json()
       const singleData = [...data].filter(d => d.lesson_no == params.lesson_no)
-      
+
       return singleData
     }
   },
@@ -71,11 +73,13 @@ const router = createBrowserRouter([
       }
     ]
   },
-  
+
 ]);
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

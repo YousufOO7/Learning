@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import Navbar from '../Layouts/Navbar';
 import { Outlet } from 'react-router-dom';
+import Footer from '../Layouts/Footer';
 
 const AuthLayout = props => {
     return (
@@ -11,6 +12,7 @@ const AuthLayout = props => {
             <div className='bg-[#F3F3F3]'>
             <Outlet></Outlet>
             </div>
+            <Footer></Footer>
         </div>
     );
 };
