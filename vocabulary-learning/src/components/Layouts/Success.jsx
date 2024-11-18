@@ -3,7 +3,7 @@ import CountUp from 'react-countup';
 const Success = props => {
     return (
         <div>
-            <h2 className="text-3xl font-semibold text-center underline">Success</h2>
+            <h2 className="text-3xl font-semibold text-center underline text-primary">Success</h2>
             <div className='py-2'>
                 <div className="stats shadow stats-vertical lg:stats-horizontal">
                     <div className="stat place-items-center">
