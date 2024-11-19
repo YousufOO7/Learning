@@ -1,4 +1,4 @@
-<h1>Assignment Category: Single page application<h1>
+<h1>Assignment Category: 003<h1>
 
 <h2>Project Name: Lingo Bingo</h2>
 
