@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import {
   createBrowserRouter,
+  Link,
   RouterProvider,
 } from "react-router-dom";
 import Main from './components/Main/Main';
@@ -20,11 +21,17 @@ import MyProfile from './components/Layouts/MyProfile';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import UpdateProfile from './components/Layouts/UpdateProfile';
+import 'animate.css';
+import ForgotPassword from './components/AuthLayout/ForgotPassword';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <div className=' justify-center mt-52'>
+      <p className="text-4xl font-bold flex justify-center mt-52">Oooppppss Error: 404 page is not Found</p>
+      <div className='my-5 flex justify-center'><Link to="/" className='btn btn-primary'>Back Home</Link></div>
+      </div>,
     children: [
       {
         path: "/",
@@ -82,6 +89,10 @@ const router = createBrowserRouter([
       {
         path: "/auth/register",
         element: <Register></Register>
+      },
+      {
+        path: "/auth/forget-password",
+        element: <ForgotPassword></ForgotPassword>
       }
     ]
   },

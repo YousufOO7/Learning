@@ -20,7 +20,19 @@ const LessonsDetails = props => {
         }
     };
 
+    const playSound = (word) => {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            utterance.lang = 'en-US';
+            utterance.rate = 1; 
+            window.speechSynthesis.speak(utterance);
+        } else {
+            console.error('Speech Synthesis not supported in this browser.');
+        }
+    };
+
     const openMOdal = data => {
+        playSound(data.word);
         setModalData(data);
         document.getElementById('my_modal_1').showModal();
     }

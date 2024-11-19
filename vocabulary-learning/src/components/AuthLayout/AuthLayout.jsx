@@ -9,7 +9,7 @@ const AuthLayout = props => {
             <header>
                 <Navbar></Navbar>
             </header>
-            <div className='bg-[#F3F3F3]'>
+            <div className='bg-[#F3F3F3] min-h-[calc(100vh-288px)]'>
             <Outlet></Outlet>
             </div>
             <Footer></Footer>

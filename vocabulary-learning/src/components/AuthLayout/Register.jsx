@@ -6,7 +6,7 @@ import { toast } from 'react-toastify';
 import { FaGoogle } from 'react-icons/fa';
 
 const Register = props => {
-    const { createNewUser, setUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+    const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState({});
     const location = useLocation();
@@ -56,21 +56,9 @@ const Register = props => {
             });
     }
 
-    const handleWithGoogle = () => {
-        signInWithGoogle()
-        .then(result => {
-            const user = result.user;
-            setUser(user);
-            navigate(location?.state ? location.state : '/')
-            toast.success("Google Login successfully  done!")
-        })
-        .catch(error => {
-            toast.error('Something was wrong make sure your info in right or not')
-        })
-    }
 
     return (
-        <div className='min-h-screen justify-center items-center flex flex-col py-10'>
+        <div className='min-h-screen justify-center items-center flex py-10'>
             <div className="card bg-base-100 w-full max-w-md shrink-0 p-10">
                 <h2 className='font-semibold text-center text-2xl'>Register your account</h2>
                 <form onSubmit={handleSubmit} className="card-body">
@@ -111,9 +99,7 @@ const Register = props => {
                 </form>
                 <p className='text-center'>Already Have An Account ? <Link to="/auth/login" className='text-red-500'>Login</Link></p>
             </div>
-            <div className='my-3'>
-                <button onClick={handleWithGoogle} className='btn btn-primary w-[450px]'><FaGoogle></FaGoogle> Login With Google</button>
-            </div>
+            
         </div>
     );
 };
