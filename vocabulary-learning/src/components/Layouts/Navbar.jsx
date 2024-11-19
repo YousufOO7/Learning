@@ -12,6 +12,9 @@ const Navbar = props => {
         <li><NavLink to="/start-learning">Start Learning</NavLink></li>
         <li><NavLink to="/tutorials">Tutorials</NavLink></li>
         <li><NavLink to="/about-us">About Us</NavLink></li>
+        {
+            user && user?.email ? <li><NavLink to="/my-profile">My Profile</NavLink></li> : ''
+        }
     </>
 
     return (
@@ -49,9 +52,15 @@ const Navbar = props => {
                    }
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end space-x-5">
                 {
-                    user && user?.email ? <button onClick={Logout} className="btn btn-neutral">Log-Out</button> : <Link to="/auth/login"><a className="btn">Login</a></Link>
+                    user && user?.email ? <div className='flex items-center gap-2'>
+                        <p>{user?.displayName}</p>
+                        <img className='h-[40px] rounded-full hidden md:block'  src={user?.photoURL} alt="image" />
+                    </div> : ''
+                }
+                {
+                    user && user?.email ? <Link to="/"><button onClick={Logout} className="btn btn-neutral">Log-Out</button></Link> : <Link to="/auth/login"><a className="btn">Login</a></Link>
                     
                 }
             </div>

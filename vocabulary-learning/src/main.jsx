@@ -16,6 +16,10 @@ import Login from './components/AuthLayout/Login';
 import Register from './components/AuthLayout/Register';
 import AuthProvider from './Provider/AuthProvider';
 import PrivateRouts from './components/AuthLayout/PrivateRouts';
+import MyProfile from './components/Layouts/MyProfile';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import UpdateProfile from './components/Layouts/UpdateProfile';
 
 const router = createBrowserRouter([
   {
@@ -46,6 +50,14 @@ const router = createBrowserRouter([
         path: "/about-us",
         element: <AboutUs></AboutUs>
       },
+      {
+        path: "/my-profile",
+        element: <MyProfile></MyProfile>
+      },
+      {
+        path: '/update-profile',
+        element: <UpdateProfile></UpdateProfile>
+      }
     ]
   },
   {
@@ -80,6 +92,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
       <RouterProvider router={router} />
+      <ToastContainer position="top-center"></ToastContainer> 
     </AuthProvider>
   </StrictMode>,
 )

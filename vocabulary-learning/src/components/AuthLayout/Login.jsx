@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Login = props => {
     const { signIn, setUser } = useContext(AuthContext);
@@ -21,11 +22,12 @@ const Login = props => {
             .then(result => {
                 const user = result.user;
                 setUser(user);
+                toast.info(`Welcome ${user?.displayName}`)
                 navigate(location?.state ? location.state : '/')
-                console.log(user)
             })
             .catch((err) => {
-                setError({ ...error, login: err.code })
+                toast.error('Something was wrong make sure your info in right or not');
+                
             });
     }
 
