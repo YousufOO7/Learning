@@ -8,7 +8,6 @@ function LessonsPage() {
   const { user } = useContext(AuthContext);
   const lessons = useLoaderData();
   const navigate = useNavigate();
-  console.log(lessons)
   const { feedBackData } = lessons;
   return (
     <div className="bg-base-100">

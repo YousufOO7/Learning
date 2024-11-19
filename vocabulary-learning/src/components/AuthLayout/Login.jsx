@@ -4,6 +4,8 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
 import { FaGoogle } from 'react-icons/fa';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Login = props => {
     const { signIn, setUser, signInWithGoogle } = useContext(AuthContext);
@@ -11,14 +13,13 @@ const Login = props => {
     const navigate = useNavigate();
     const [error, setError] = useState({});
     const [email, setEmail] = useState("");
+    const [showPassword, setShowPassword] = useState(false)
 
     const handleSubmit = e => {
         e.preventDefault();
         const form = new FormData(e.target);
         const email = form.get('email');
         const password = form.get('password');
-
-        console.log(email, password)
         // signIn user
         signIn(email, password)
             .then(result => {
@@ -29,11 +30,11 @@ const Login = props => {
             })
             .catch((err) => {
                 toast.error('Something was wrong make sure your info in right or not');
-                
+
             });
     }
     const handleWithGoogle = () => {
-            signInWithGoogle()
+        signInWithGoogle()
             .then(result => {
                 const user = result.user;
                 setUser(user);
@@ -43,11 +44,11 @@ const Login = props => {
             .catch(error => {
                 toast.error('Something was wrong make sure your info in right or not')
             })
-        }
+    }
 
-        const handleForgotPassword = () => {
-            navigate('/auth/forget-password', { state: { email } });
-        };
+    const handleForgotPassword = () => {
+        navigate('/auth/forget-password', { state: { email } });
+    };
 
     return (
         <div className='min-h-screen justify-center items-center flex flex-col'>
@@ -59,23 +60,35 @@ const Login = props => {
                             <span className="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                         className="input input-bordered" required />
+                            onChange={(e) => setEmail(e.target.value)}
+                            className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            name='password'
+                            placeholder="password"
+                            className="input input-bordered" required />
+
+                        <button
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="btn btn-xs absolute right-4 top-12">
+                            {
+                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                            }
+                        </button>
                         {
                             error.login && <label className="label text-red-500 text-xs">
                                 {error.login}
                             </label>
                         }
                         <label className="label">
-                            <a  
-                            onClick={handleForgotPassword}
-                            href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <a
+                                onClick={handleForgotPassword}
+                                href="#" className="label-text-alt link link-hover">Forgot password?</a>
                         </label>
                     </div>
                     <div className="form-control mt-6">

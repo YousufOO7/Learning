@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
 const FeedBack = ({ feedBackData }) => {
-    console.log(feedBackData)
     return (
         <div>
             <h2 

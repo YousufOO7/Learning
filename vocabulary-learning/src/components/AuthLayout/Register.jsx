@@ -3,13 +3,15 @@ import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
 import { toast } from 'react-toastify';
-import { FaGoogle } from 'react-icons/fa';
+import { FaEye } from "react-icons/fa";
+import { FaEyeSlash } from "react-icons/fa";
 
 const Register = props => {
     const { createNewUser, setUser, updateUserProfile } = useContext(AuthContext);
     const navigate = useNavigate();
     const [error, setError] = useState({});
     const location = useLocation();
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -34,9 +36,6 @@ const Register = props => {
             return;
         }
 
-
-
-        console.log(name, photo, email, password)
         // create user
         createNewUser(email, password)
             .then(result => {
@@ -81,11 +80,24 @@ const Register = props => {
                         </label>
                         <input type="email" name='email' placeholder="email" className="input input-bordered" required />
                     </div>
-                    <div className="form-control">
+                    <div className="form-control relative">
                         <label className="label">
                             <span className="label-text">Password</span>
                         </label>
-                        <input type="password" name='password' placeholder="password" className="input input-bordered" required />
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            name='password'
+                            placeholder="password"
+                            className="input input-bordered"
+                            required />
+
+                        <button
+                            onClick={() => setShowPassword(!showPassword)}
+                            className="btn btn-xs absolute right-4 top-12">
+                            {
+                                showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                            }
+                        </button>
                     </div>
                     {
                         error.password &&
@@ -99,7 +111,7 @@ const Register = props => {
                 </form>
                 <p className='text-center'>Already Have An Account ? <Link to="/auth/login" className='text-red-500'>Login</Link></p>
             </div>
-            
+
         </div>
     );
 };
