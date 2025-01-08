@@ -11,7 +11,9 @@
 
 <h3>how to use manually</h3>
 <ul>
-    <p>First:run npm install to client side and server side too</>
+    <p>first:run npm install to </>
+    <p>use your firebase code for authentication</p>    
+    <p>Make sure your file have env.local file</p>    
 </ul>
 
 <h3>Key Features</h3>
