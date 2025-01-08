@@ -9,6 +9,11 @@
 
 <h2>GitHub Link: https://github.com/programming-hero-web-course1/b10-a9-authentication-YousufOO7</h2>
 
+<h3>how to use manually</h3>
+<ul>
+    <p>First:run npm install to client side and server side too</>
+</ul>
+
 <h3>Key Features</h3>
 <ul>
     <li>useParams</li>
